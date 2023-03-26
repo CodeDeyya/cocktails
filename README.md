@@ -27,6 +27,9 @@ User can remove a cocktail from favourites list
 - [System requirements](#system-requirements)
 - [Installing](#installing)
 - [issues](#issues)
+- [File Structure](#file-structure)
+
+You can access the website from this url(https://amused.vercel.app/)
 
 ## System requirements
 
@@ -64,11 +67,24 @@ yarn test
 yarn coverage
 ```
 
+## File Structure
+
+The main code is written inside the `src` file
+
+- `components` file is used to store all react components which can be used in multiple domains
+- `domains` file contain components relevant to specific page
+- `api` file contains api files per page named as ${page}.api.ts
+- `models` file contains all types
+- `store` file contains the redux store and slices
+- `test` file contains all tests
+
 ## Issues
 
-The apis throws a CORS error on safari and Iphones
+- The apis throws a CORS error on safari and Iphones
 
-It is needed to be handled from the server to support cross origin
+- As there is no persistant DB the user favourites will be lost on refresh
+
+- It is needed to be handled from the server to support cross origin
 
 ## Technologies
 
