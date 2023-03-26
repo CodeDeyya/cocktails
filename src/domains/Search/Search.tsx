@@ -65,6 +65,7 @@ const Search = (props: Props) => {
   };
 
   const handleAddClick = (cocktail: Cocktail) => {
+    setSuccessMessage("Added to favourites");
     //check if the cocktail is already in the favourites
     const isFavourite = favourites.find(
       (favourite) => favourite.idDrink === cocktail.idDrink
@@ -79,7 +80,6 @@ const Search = (props: Props) => {
   };
   return (
     <AppLayout title="Search">
-      {/* Add a search bar */}
       <SearchBar
         onSearch={onSearch}
         handleSearchChange={handleSearchChange}

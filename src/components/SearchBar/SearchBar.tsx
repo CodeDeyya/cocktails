@@ -19,6 +19,7 @@ const SearchBar = ({ onSearch, searchTerm, handleSearchChange }: Props) => {
       <form
         onSubmit={handleSearch}
         className="flex items-center justify-center"
+        role="form"
       >
         <input
           type="text"

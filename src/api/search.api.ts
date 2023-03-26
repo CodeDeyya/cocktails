@@ -3,12 +3,8 @@ import axios from "axios";
 
 export const searchCocktail: searchCocktailFunc = async (req) => {
   try {
-    const config = {
-      method: "get",
-      url: `http://www.thecocktaildb.com/api/json/v1/1/search.php?s=${req.name}`,
-      headers: {},
-    };
-    const response = await axios(config);
+    const url = `http://www.thecocktaildb.com/api/json/v1/1/search.php?s=${req.name}`;
+    const response = await axios.get(url);
     if (!response.data.drinks) {
       throw new Error("No cocktails found");
     }

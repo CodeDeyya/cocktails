@@ -30,7 +30,9 @@ const Card = (props: Props) => {
       />
       <article className="mt-4 text-center">
         <h1 className="text-2xl font-bold">{props.cocktail.strDrink}</h1>
-        <p className="text-sm text-gray-500">{props.cocktail.strCategory}</p>
+        {!(props.add || props.remove) && (
+          <p className="text-sm text-gray-500">{props.cocktail.strCategory}</p>
+        )}
       </article>
       {props.add && (
         <button

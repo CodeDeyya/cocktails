@@ -5,13 +5,9 @@ export const getRandomCocktails: getCocktailsFunc = async (req) => {
   try {
     const cocktails: Cocktail[] = [];
     const promises: Promise<any>[] = [];
-    const config = {
-      method: "get",
-      url: "https://www.thecocktaildb.com/api/json/v1/1/random.php",
-      headers: {},
-    };
+    const url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
     const getOneCocktail = async () => {
-      const response = await axios(config);
+      const response = await axios.get(url);
       const cocktail = response.data.drinks[0];
       cocktails.push(cocktail);
     };
@@ -26,7 +22,7 @@ export const getRandomCocktails: getCocktailsFunc = async (req) => {
   } catch (err) {
     return {
       status: StatusEnum.ERROR,
-      error: err instanceof Error ? err : "Oops something went wrong",
+      error: err instanceof Error ? err.message : "Oops something went wrong",
     };
   }
 };
