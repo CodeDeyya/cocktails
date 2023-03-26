@@ -4,6 +4,7 @@ import Card from "@/components/Card";
 import ResponsiveWrapper from "@/components/ResponsiveWrapper";
 import {
   getCocktails,
+  getCocktailsError,
   getCocktailsLoading,
   setCocktails,
   setCocktailsError,
@@ -12,6 +13,7 @@ import {
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { StatusEnum } from "../../models/Cocktails";
+import MessageBox from "@/components/MessageBox";
 
 type Props = {};
 
@@ -19,10 +21,11 @@ const Home = (props: Props) => {
   const dispatch = useDispatch();
   const cocktails = useSelector(getCocktails);
   const loading = useSelector(getCocktailsLoading);
+  const error = useSelector(getCocktailsError);
   //function to get the cocktails from the api
   const getCocktailsApi = async () => {
     dispatch(setCocktailsLoading(true));
-    const newRandomCocktailsData = await getRandomCocktails({
+    let newRandomCocktailsData = await getRandomCocktails({
       count: 5,
     });
     if (!newRandomCocktailsData) return;
@@ -57,6 +60,7 @@ const Home = (props: Props) => {
           <Card key={cocktail.strDrink} cocktail={cocktail} loading={loading} />
         ))}
       </ResponsiveWrapper>
+      {error && <MessageBox message={error} type="error" />}
     </AppLayout>
   );
 };

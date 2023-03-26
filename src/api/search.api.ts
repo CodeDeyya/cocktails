@@ -9,6 +9,9 @@ export const searchCocktail: searchCocktailFunc = async (req) => {
       headers: {},
     };
     const response = await axios(config);
+    if (!response.data.drinks) {
+      throw new Error("No cocktails found");
+    }
     return {
       status: StatusEnum.OK,
       drinks: response.data.drinks,
@@ -16,7 +19,8 @@ export const searchCocktail: searchCocktailFunc = async (req) => {
   } catch (error) {
     return {
       status: StatusEnum.ERROR,
-      error: error || "Oops something went wrong",
+      error:
+        error instanceof Error ? error.message : "Oops something went wrong",
     };
   }
 };

@@ -1,4 +1,3 @@
-import { promises } from "dns";
 import { Cocktail, StatusEnum, getCocktailsFunc } from "../models/Cocktails";
 import axios from "axios";
 
@@ -27,7 +26,7 @@ export const getRandomCocktails: getCocktailsFunc = async (req) => {
   } catch (err) {
     return {
       status: StatusEnum.ERROR,
-      error: err || "Oops something went wrong",
+      error: err instanceof Error ? err : "Oops something went wrong",
     };
   }
 };

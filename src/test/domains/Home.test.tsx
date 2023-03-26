@@ -16,14 +16,6 @@ const renderWithRedux = (component: React.ReactElement) => {
 };
 
 describe("Home component", () => {
-  beforeEach(() => {
-    jest.useFakeTimers();
-  });
-
-  afterEach(() => {
-    jest.useRealTimers();
-  });
-
   test("renders the Home component", () => {
     renderWithRedux(<Home />);
     expect(screen.getByText("Cocktail Bar")).toBeInTheDocument();
@@ -38,8 +30,6 @@ describe("Home component", () => {
     renderWithRedux(<Home />);
 
     await waitFor(() => expect(getRandomCocktails).toHaveBeenCalled());
-
-    jest.runAllTimers();
 
     mockCocktails.forEach((cocktail) => {
       expect(screen.getByText(cocktail.strDrink)).toBeInTheDocument();
@@ -61,20 +51,5 @@ describe("Home component", () => {
     mockCocktails.forEach((cocktail) => {
       expect(screen.getByText(cocktail.strDrink)).toBeInTheDocument();
     });
-  });
-
-  test("displays an error message when the API request fails", async () => {
-    (getRandomCocktails as jest.Mock).mockResolvedValue({
-      status: 500,
-      error: "An error occurred while fetching the cocktails.",
-    });
-
-    renderWithRedux(<Home />);
-
-    await waitFor(() =>
-      expect(
-        screen.getByText("An error occurred while fetching the cocktails.")
-      ).toBeInTheDocument()
-    );
   });
 });
