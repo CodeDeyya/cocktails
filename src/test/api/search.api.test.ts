@@ -33,7 +33,7 @@ describe("searchCocktail", () => {
 
     // Check if the axios request was called with the correct arguments
     expect(axios.get).toHaveBeenCalledWith(
-      "http://www.thecocktaildb.com/api/json/v1/1/search.php?s=mar"
+      "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=mar"
     );
   });
 
