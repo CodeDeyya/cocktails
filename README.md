@@ -29,7 +29,7 @@ User can remove a cocktail from favourites list
 - [issues](#issues)
 - [File Structure](#file-structure)
 
-You can access the website from this url(https://amused.vercel.app/)
+You can access the website from [here](https://amused.vercel.app/)
 
 ## System requirements
 
