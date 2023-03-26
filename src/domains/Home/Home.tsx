@@ -25,11 +25,10 @@ const Home = (props: Props) => {
     const newRandomCocktailsData = await getRandomCocktails({
       count: 5,
     });
+    if (!newRandomCocktailsData) return;
     if (newRandomCocktailsData.status === StatusEnum.OK) {
       dispatch(setCocktails(newRandomCocktailsData.drinks));
-      setTimeout(() => {
-        dispatch(setCocktailsLoading(false));
-      }, 1000);
+      dispatch(setCocktailsLoading(false));
     } else {
       dispatch(setCocktailsError(newRandomCocktailsData.error));
       dispatch(setCocktailsLoading(false));

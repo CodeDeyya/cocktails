@@ -4,6 +4,7 @@ import ResponsiveWrapper from "@/components/ResponsiveWrapper";
 import { getUserFavourites, removeFavourites } from "@/store/slices/user.slice";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Cocktail } from "../../models/Cocktails";
 
 type Props = {};
 

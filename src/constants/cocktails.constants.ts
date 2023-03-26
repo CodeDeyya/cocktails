@@ -22,20 +22,6 @@ export const cocktails: Cocktail[] = [
     strDrinkThumb:
       "https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg",
   },
-  {
-    idDrink: "4",
-    strDrink: "Mojito",
-    strCategory: "Cocktail",
-    strDrinkThumb:
-      "https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg",
-  },
-  {
-    idDrink: "5",
-    strDrink: "Mojito",
-    strCategory: "Cocktail",
-    strDrinkThumb:
-      "https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg",
-  },
 ];
 
 export const searchedCocktail: Cocktail = {

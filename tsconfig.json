@@ -21,9 +21,15 @@
       "@/models/*": ["./src/types/*"],
       "@/styles/*": ["./src/styles/*"],
       "@/constants/*": ["./src/constants/*"],
-      "@/store/*": ["./src/store/*"]
+      "@/store/*": ["./src/store/*"],
+      "@/test/*": ["./src/test/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/test/domains/Home.test.js"
+  ],
   "exclude": ["node_modules"]
 }
