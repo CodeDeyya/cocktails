@@ -31,7 +31,8 @@ export const cocktailsSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { setCocktails, setCocktailsLoading } = cocktailsSlice.actions;
+export const { setCocktails, setCocktailsLoading, setCocktailsError } =
+  cocktailsSlice.actions;
 export const getCocktails = (state: RootState) => state.cocktails.cocktails;
 export const getCocktailsLoading = (state: RootState) =>
   state.cocktails.loading;

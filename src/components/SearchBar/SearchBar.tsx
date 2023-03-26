@@ -1,14 +1,14 @@
 // components/SearchBar.js
 
-import { FormEvent, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, FormEvent, useState } from "react";
 
 type Props = {
   onSearch: (searchTerm: string) => void;
+  searchTerm: string;
+  handleSearchChange: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
-const SearchBar = ({ onSearch }: Props) => {
-  const [searchTerm, setSearchTerm] = useState("");
-
+const SearchBar = ({ onSearch, searchTerm, handleSearchChange }: Props) => {
   const handleSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     onSearch(searchTerm);
@@ -23,7 +23,7 @@ const SearchBar = ({ onSearch }: Props) => {
         <input
           type="text"
           value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
+          onChange={handleSearchChange}
           className="w-full px-3 py-2 text-sm leading-tight text-gray-700 bg-white border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Search..."
         />

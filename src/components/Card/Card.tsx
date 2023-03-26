@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { Cocktail } from "../../models/Cocktails";
+import CardSkeleton from "./CardSkeleton";
 
 type Props = {
   handleAddClick?: () => void;
@@ -8,17 +9,23 @@ type Props = {
   cocktail: Cocktail;
   remove?: boolean;
   add?: boolean;
+  loading?: boolean;
 };
 
 const Card = (props: Props) => {
+  if (props.loading) {
+    return <CardSkeleton />;
+  }
   return (
-    <div className="flex flex-col items-center justify-center p-5 rounded-lg w-fit ">
+    <div className="flex flex-col items-center justify-center p-5 mt-3 rounded-lg w-fit ">
       <Image
         alt="Vodka Martini"
         className="object-cover border border-gray-500 rounded-lg"
         src={props.cocktail.strDrinkThumb}
         width={300}
         height={300}
+        placeholder="blur"
+        blurDataURL="/placeholder.png"
       />
       <article className="mt-4 text-center">
         <h1 className="text-2xl font-bold">{props.cocktail.strDrink}</h1>
