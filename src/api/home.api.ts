@@ -5,14 +5,15 @@ export const getRandomCocktails: getCocktailsFunc = async (req) => {
   try {
     const cocktails: Cocktail[] = [];
     const promises: Promise<any>[] = [];
-    const url = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
-    const getOneCocktail = async () => {
+
+    const getOneCocktail = async (i: number) => {
+      const url = `https://www.thecocktaildb.com/api/json/v1/1/random.php?cb=${i}`;
       const response = await axios.get(url);
       const cocktail = response.data.drinks[0];
       cocktails.push(cocktail);
     };
     for (let i = 0; i < req.count; i++) {
-      promises.push(getOneCocktail());
+      promises.push(getOneCocktail(i));
     }
     await Promise.all(promises);
     return {

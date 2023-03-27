@@ -24,6 +24,7 @@ const Home = (props: Props) => {
   const error = useSelector(getCocktailsError);
   //function to get the cocktails from the api
   const getCocktailsApi = async () => {
+    dispatch(setCocktails([]));
     dispatch(setCocktailsLoading(true));
     let newRandomCocktailsData = await getRandomCocktails({
       count: 5,
@@ -31,7 +32,10 @@ const Home = (props: Props) => {
     if (!newRandomCocktailsData) return;
     if (newRandomCocktailsData.status === StatusEnum.OK) {
       dispatch(setCocktails(newRandomCocktailsData.drinks));
-      dispatch(setCocktailsLoading(false));
+      //Do not push to prod used to emulate the delay in api
+      setTimeout(() => {
+        dispatch(setCocktailsLoading(false));
+      }, 1000);
     } else {
       dispatch(setCocktailsError(newRandomCocktailsData.error));
       dispatch(setCocktailsLoading(false));
