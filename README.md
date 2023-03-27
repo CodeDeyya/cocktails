@@ -80,11 +80,8 @@ The main code is written inside the `src` file
 
 ## Issues
 
-- The apis throws a CORS error on safari and Iphones
-
 - As there is no persistant DB the user favourites will be lost on refresh
 
-- It is needed to be handled from the server to support cross origin
 
 ## Technologies
 
