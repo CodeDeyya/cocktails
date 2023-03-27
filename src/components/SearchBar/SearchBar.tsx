@@ -1,11 +1,9 @@
-// components/SearchBar.js
-
-import { ChangeEvent, ChangeEventHandler, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent } from "react";
 
 type Props = {
-  onSearch: (searchTerm: string) => void;
-  searchTerm: string;
-  handleSearchChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onSearch: (searchTerm: string) => void,
+  searchTerm: string,
+  handleSearchChange: (event: ChangeEvent<HTMLInputElement>) => void,
 };
 
 const SearchBar = ({ onSearch, searchTerm, handleSearchChange }: Props) => {
