@@ -1,12 +1,13 @@
 import { Cocktail, StatusEnum, getCocktailsFunc } from "../models/Cocktails";
 import axios from "axios";
 
+//function to get random cocktail from the API
 export const getRandomCocktails: getCocktailsFunc = async (req) => {
   try {
     const cocktails: Cocktail[] = [];
     const promises: Promise<any>[] = [];
-
     const getOneCocktail = async (i: number) => {
+      // cb param is used to avoid the cached responses as we need random cocktails
       const url = `https://www.thecocktaildb.com/api/json/v1/1/random.php?cb=${i}`;
       const response = await axios.get(url);
       const cocktail = response.data.drinks[0];

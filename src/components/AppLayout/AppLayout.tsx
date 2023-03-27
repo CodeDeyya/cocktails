@@ -3,8 +3,8 @@ import Navbar from "./NavBar";
 import Head from "next/head";
 
 type Props = {
-  children: React.ReactNode;
-  title: string;
+  children: React.ReactNode,
+  title: string,
 };
 
 const AppLayout = (props: Props) => {
