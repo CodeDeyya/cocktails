@@ -14,6 +14,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { StatusEnum } from "../../models/Cocktails";
 import MessageBox from "@/components/MessageBox";
+import { cocktailsOnHomePageCount } from "@/constants/cocktails.constants";
 
 type Props = {};
 
@@ -27,7 +28,7 @@ const Home = (props: Props) => {
     dispatch(setCocktails([]));
     dispatch(setCocktailsLoading(true));
     let newRandomCocktailsData = await getRandomCocktails({
-      count: 5,
+      count: cocktailsOnHomePageCount,
     });
     if (!newRandomCocktailsData) return;
     if (newRandomCocktailsData.status === StatusEnum.OK) {

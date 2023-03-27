@@ -1,5 +1,7 @@
 import { Cocktail } from "../models/Cocktails";
 
+export const cocktailsOnHomePageCount = 5;
+
 export const cocktails: Cocktail[] = [
   {
     idDrink: "1",
